@@ -1,0 +1,539 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.BarDtl.Define("Terminal",String,"Terminal")
+Variable.UDT.BarDtl.Define("Rptid",String,"Rptid")
+Variable.UDT.BarDtl.Define("Job",String,"Job")
+Variable.UDT.BarDtl.Define("Suffix",String,"Suffix")
+Variable.UDT.BarDtl.Define("Copy_No",Long,"Copy_No")
+Variable.UDT.BarDtl.Define("Key_Seq",String,"Key_Seq")
+Variable.UDT.BarDtl.Define("Router_Seq",String,"Router_Seq")
+Variable.UDT.BarDtl.Define("LMO",String,"LMO")
+Variable.UDT.BarDtl.Define("BC_SEQ",String,"BC_SEQ")
+Variable.UDT.BarDtl.Define("BC_PWC",String,"BC_PWC")
+Variable.UDT.BarDtl.Define("Start_Date",String,"Start_Date")
+Variable.UDT.BarDtl.Define("Due_Date",String,"Due_Date")
+Variable.UDT.BarDtl.Define("PWC",String,"PWC")
+Variable.UDT.BarDtl.Define("Extra_Desc",String,"Extra_Desc")
+Variable.UDT.BarDtl.Define("UM",String,"UM")
+Variable.UDT.BarDtl.Define("Setup",Float,"Setup")
+Variable.UDT.BarDtl.Define("Runtime",Float,"Runtime")
+Variable.UDT.BarDtl.Define("Labor_Total",Float,"Labor_Total")
+Variable.UDT.BarDtl.Define("Unit",Float,"Unit")
+Variable.UDT.BarDtl.Define("Matl_Total",Float,"Matl_Total")
+Variable.UDT.BarDtl.Define("Mach",String,"Mach")
+Variable.UDT.BarDtl.Define("Committed_Units",Float,"Committed_Units")
+Variable.UDT.BarDtl.Define("Committed_Dollars",Float,"Committed_Dollars")
+Variable.UDT.BarDtl.Define("Burden",Float,"Burden")
+Variable.UDT.BarDtl.Define("Act_Hrs",Float,"Act_Hrs")
+Variable.UDT.BarDtl.Define("Est_Dlrs",Float,"Est_Dlrs")
+Variable.UDT.BarDtl.Define("Act_Dlrs",Float,"Act_Dlrs")
+Variable.UDT.BarDtl.Define("WC_Factor",String,"WC_Factor")
+Variable.UDT.BarDtl.Define("Proj_Group",String,"Proj_Group")
+Variable.UDT.BarDtl.Define("Oper_Sort_Code",String,"Oper_Sort_Code")
+Variable.UDT.BarDtl.Define("Crew_Size",Float,"Crew_Size")
+Variable.UDT.BarDtl.Define("Frequent",Long,"Frequent")
+Variable.UDT.BarDtl.Define("Prev_Clsd",String,"Prev_Clsd")
+Variable.UDT.BarDtl.Define("Main_Comment",String,"Main_Comment")
+Variable.UDT.BarDtl.Define("Lead_Time",Long,"Lead_Time")
+Variable.UDT.BarDtl.Define("Minimum_Flag",String,"Minimum_Flag")
+Variable.UDT.BarDtl.Define("Minimum",Float,"Minimum")
+Variable.UDT.BarDtl.Define("Tooling_Seq",String,"Tooling_Seq")
+Variable.UDT.BarDtl.Define("Hold_PO",String,"Hold_PO")
+Variable.UDT.BarDtl.Define("WC_Name",String,"WC_Name")
+Variable.UDT.BarDtl.Define("PartNo",String,"PartNo")
+Variable.UDT.BarDtl.Define("Rec_Type",String,"Rec_Type")
+Variable.UDT.BarDtl.Define("WO_User_Fld",String,"WO_User_Fld")
+Variable.UDT.BarDtl.Define("Serial_Number",String,"Serial_Number")
+Variable.UDT.BarDtl.Define("PWC_Part",String,"PWC_Part")
+Variable.UDT.BarDtl.Define("comments",String,"comments")
+Variable.uGlobal.uBarDtl.Declare("BarDtl")
+
+Variable.UDT.GCGDtl.Define("Terminal",String,"Terminal")
+Variable.UDT.GCGDtl.Define("Rptid",String,"Rptid")
+Variable.UDT.GCGDtl.Define("Job",String,"Job")
+Variable.UDT.GCGDtl.Define("Suffix",String,"Suffix")
+Variable.UDT.GCGDtl.Define("Copy_No",Long,"Copy_No")
+Variable.UDT.GCGDtl.Define("Key_Seq",String,"Key_Seq")
+Variable.UDT.GCGDtl.Define("Router_Seq",String,"Router_Seq")
+Variable.UDT.GCGDtl.Define("LMO",String,"LMO")
+Variable.UDT.GCGDtl.Define("BC_SEQ",String,"BC_SEQ")
+Variable.UDT.GCGDtl.Define("BC_PWC",String,"BC_PWC")
+Variable.UDT.GCGDtl.Define("Start_Date",String,"Start_Date")
+Variable.UDT.GCGDtl.Define("Due_Date",String,"Due_Date")
+Variable.UDT.GCGDtl.Define("PWC",String,"PWC")
+Variable.UDT.GCGDtl.Define("Extra_Desc",String,"Extra_Desc")
+Variable.UDT.GCGDtl.Define("UM",String,"UM")
+Variable.UDT.GCGDtl.Define("Setup",Float,"Setup")
+Variable.UDT.GCGDtl.Define("Runtime",Float,"Runtime")
+Variable.UDT.GCGDtl.Define("Labor_Total",Float,"Labor_Total")
+Variable.UDT.GCGDtl.Define("Unit",Float,"Unit")
+Variable.UDT.GCGDtl.Define("Matl_Total",Float,"Matl_Total")
+Variable.UDT.GCGDtl.Define("Mach",String,"Mach")
+Variable.UDT.GCGDtl.Define("Committed_Units",Float,"Committed_Units")
+Variable.UDT.GCGDtl.Define("Committed_Dollars",Float,"Committed_Dollars")
+Variable.UDT.GCGDtl.Define("Burden",Float,"Burden")
+Variable.UDT.GCGDtl.Define("Act_Hrs",Float,"Act_Hrs")
+Variable.UDT.GCGDtl.Define("Est_Dlrs",Float,"Est_Dlrs")
+Variable.UDT.GCGDtl.Define("Act_Dlrs",Float,"Act_Dlrs")
+Variable.UDT.GCGDtl.Define("WC_Factor",String,"WC_Factor")
+Variable.UDT.GCGDtl.Define("Proj_Group",String,"Proj_Group")
+Variable.UDT.GCGDtl.Define("Oper_Sort_Code",String,"Oper_Sort_Code")
+Variable.UDT.GCGDtl.Define("Crew_Size",Float,"Crew_Size")
+Variable.UDT.GCGDtl.Define("Frequent",Long,"Frequent")
+Variable.UDT.GCGDtl.Define("Prev_Clsd",String,"Prev_Clsd")
+Variable.UDT.GCGDtl.Define("Main_Comment",String,"Main_Comment")
+Variable.UDT.GCGDtl.Define("Lead_Time",Long,"Lead_Time")
+Variable.UDT.GCGDtl.Define("Minimum_Flag",String,"Minimum_Flag")
+Variable.UDT.GCGDtl.Define("Minimum",Float,"Minimum")
+Variable.UDT.GCGDtl.Define("Tooling_Seq",String,"Tooling_Seq")
+Variable.UDT.GCGDtl.Define("Hold_PO",String,"Hold_PO")
+Variable.UDT.GCGDtl.Define("WC_Name",String,"WC_Name")
+Variable.UDT.GCGDtl.Define("PartNo",String,"PartNo")
+Variable.UDT.GCGDtl.Define("Rec_Type",String,"Rec_Type")
+Variable.UDT.GCGDtl.Define("WO_User_Fld",String,"WO_User_Fld")
+Variable.UDT.GCGDtl.Define("Serial_Number",String,"Serial_Number")
+Variable.UDT.GCGDtl.Define("PWC_Part",String,"PWC_Part")
+Variable.UDT.GCGDtl.Define("comments",String,"Comments")
+Variable.uGlobal.uGCGDtl.Declare("GCGDtl")
+
+Variable.UDT.LSeq.Define("Job",String,"Job")
+Variable.UDT.LSeq.Define("Suffix",String,"Suffix")
+Variable.UDT.LSeq.Define("Router_Seq",String,"Router_Seq")
+Variable.UDT.LSeq.Define("Key_Seq",String,"Key_Seq")
+Variable.UDT.LSeq.Define("Copy_No",Long,"Copy_No")
+Variable.uGlobal.uLSeq.Declare("LSeq")
+
+Variable.UDT.CSeq.Define("Job",String,"Job")
+Variable.UDT.CSeq.Define("Suffix",String,"Suffix")
+Variable.UDT.CSeq.Define("Router_Seq",String,"Router_Seq")
+Variable.UDT.CSeq.Define("Key_Seq",String,"Key_Seq")
+Variable.UDT.CSeq.Define("Copy_No",Long,"Copy_No")
+Variable.uGlobal.uCSeq.Declare("CSeq")
+
+Variable.UDT.JobSuf.Define("Job",String,"Job")
+Variable.UDT.JobSuf.Define("Suffix",String,"Suffix")
+Variable.uGlobal.uJobSuf.Declare("JobSuf")
+
+Variable.Global.iSeq.Declare(Long,0)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: JCT
+'Project Start Date: 09/28/2011
+'Hooks:
+'  16090
+'Other Components:
+'  GCG_BarCodeWO_CAB.sql
+'  SF_BarCodeWO_CAB.rpt
+
+F.ODBC.Connection!Con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.CallSub(Loaddata)
+F.Intrinsic.Control.CallSub(Unload)
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+
+F.ODBC.Connection!Con.Close
+f.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+Program.Sub.LoadData.Start
+
+V.Local.sInsert.Declare(String)
+V.Local.sBISel.Declare(String)
+V.Local.sFields.Declare(String)
+V.Local.sValues.Declare(String)
+V.Local.iForJob.Declare(Long)
+V.Local.sSel.Declare(String)
+
+V.uGlobal.uJobSuf.Redim(-1,-1)
+V.uGlobal.uBarDtl.Redim(-1,-1)
+V.uGlobal.uGCGDtl.Redim(-1,-1)
+
+'get distinct job-suffix
+F.Intrinsic.String.Concat("select distinct Job, Suffix from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' order by Job, Suffix",V.Local.sBISel)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstBISel",V.Local.sBISel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstBISel.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstBISel","v.uGlobal.uJobSuf",False,0)
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstBISel.Close
+
+
+'for each job-suffix
+F.Intrinsic.Control.For(V.Local.iForJob,V.uGlobal.uJobSuf!Job.Lbound,V.uGlobal.uJobSuf!Suffix.Ubound,1)
+	F.Intrinsic.Control.CallSub(Labor,"Job",V.uGlobal.uJobSuf(V.Local.iForJob)!Job,"Suffix",V.uGlobal.uJobSuf(V.Local.iForJob)!Suffix)
+	F.Intrinsic.Control.CallSub(Material,"Job",V.uGlobal.uJobSuf(V.Local.iForJob)!Job,"Suffix",V.uGlobal.uJobSuf(V.Local.iForJob)!Suffix)
+	F.Intrinsic.Control.CallSub(Outside,"Job",V.uGlobal.uJobSuf(V.Local.iForJob)!Job,"Suffix",V.uGlobal.uJobSuf(V.Local.iForJob)!Suffix)
+	F.Intrinsic.Control.CallSub(Total,"Job",V.uGlobal.uJobSuf(V.Local.iForJob)!Job,"Suffix",V.uGlobal.uJobSuf(V.Local.iForJob)!Suffix)
+F.Intrinsic.Control.Next(V.Local.iForJob)
+
+F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.Concat("delete from GCG_SF_BarCodeWO_CAB where Terminal='",V.Caller.Terminal,"'",V.Local.sSel)
+F.ODBC.Connection!Con.Execute(V.Local.sSel)
+
+'Function.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uGCGDtl!comments,"Filler50")
+'V.Local.sFields.Set("Terminal,Rptid,Job,Suffix,Copy_No,Key_Seq,Router_Seq,LMO,BC_SEQ,BC_PWC,Start_Date,Due_Date,PWC,Extra_Desc,UM,Setup,Runtime,Labor_Total,Unit,Matl_Total,Mach,")
+'F.Intrinsic.String.Concat(V.Local.sFields,"Committed_Units,Committed_Dollars,Burden,Act_Hrs,Est_Dlrs,Act_Dlrs,WC_Factor,Proj_Group,Oper_Sort_Code,Crew_Size,Frequent,Prev_Clsd,",V.Local.sFields)
+'F.Intrinsic.String.Concat(V.Local.sFields,"Main_Comment,Lead_Time,Minimum_Flag,Minimum,Tooling_Seq,Hold_PO,WC_Name,PartNo,Rec_Type,WO_User_Fld,Serial_Number,PWC_Part,Filler50",V.Local.sFields)
+'F.Intrinsic.String.Concat("select ",V.Local.sFields," from GCG_SF_BarCodeWO_CAB ",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRW("rstSel",V.Local.sSel)
+'	Function.Intrinsic.Variable.SaveUDTToRecordset("Con","rstSel","v.uGlobal.uGCGDtl")
+'F.ODBC.Con!rstSel.Close
+
+V.Local.sFields.Set("(Terminal,Rptid,Job,Suffix,Copy_No,Key_Seq,Router_Seq,LMO,BC_SEQ,BC_PWC,Start_Date,Due_Date,PWC,Extra_Desc,UM,Setup,Runtime,Labor_Total,Unit,Matl_Total,Mach,")
+F.Intrinsic.String.Concat(V.Local.sFields,"Committed_Units,Committed_Dollars,Burden,Act_Hrs,Est_Dlrs,Act_Dlrs,WC_Factor,Proj_Group,Oper_Sort_Code,Crew_Size,Frequent,Prev_Clsd,",V.Local.sFields)
+F.Intrinsic.String.Concat(V.Local.sFields,"Main_Comment,Lead_Time,Minimum_Flag,Minimum,Tooling_Seq,Hold_PO,WC_Name,PartNo,Rec_Type,WO_User_Fld,Serial_Number,PWC_Part,Filler50)",V.Local.sFields)
+	F.Intrinsic.Control.For(V.Local.iForJob,V.uGlobal.uGCGDtl!Job.LBound,V.uGlobal.uGCGDtl!Job.UBound,1)
+		F.Intrinsic.String.Replace(V.uGlobal.uGCGDtl(v.Local.iForJob)!comments,"'","''",V.uGlobal.uGCGDtl(v.Local.iForJob)!comments)
+		F.Intrinsic.String.Replace(V.uGlobal.uGCGDtl(v.Local.iForJob)!Extra_Desc,"'","''",V.uGlobal.uGCGDtl(v.Local.iForJob)!Extra_Desc)
+		F.Intrinsic.String.Replace(V.uGlobal.uGCGDtl(v.Local.iForJob)!Main_Comment,"'","''",V.uGlobal.uGCGDtl(v.Local.iForJob)!Main_Comment)
+
+		F.Intrinsic.String.Concat("('",V.uGlobal.uGCGDtl(v.Local.iForJob)!Terminal,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Rptid,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Job,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Suffix,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Copy_No,"','",V.Local.sValues)
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Key_Seq,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Router_Seq,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!LMO,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!BC_SEQ,"','",V.Local.sValues)
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!BC_PWC,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Start_Date.PervasiveDate,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Due_Date.PervasiveDate,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!PWC,"','",V.Local.sValues)
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Extra_Desc,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!UM,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Setup,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Runtime,"','",V.Local.sValues)
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Labor_Total,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Unit,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Matl_Total,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Mach,"','",V.Local.sValues)
+
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Committed_Units,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Committed_Dollars,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Burden,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Act_Hrs,"','",V.Local.sValues)
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Est_Dlrs,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Act_Dlrs,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!WC_Factor,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Proj_Group,"','",V.Local.sValues)
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Oper_Sort_Code,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Crew_Size,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Frequent,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Prev_Clsd,"','",V.Local.sValues)
+
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Main_Comment,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Lead_Time,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Minimum_Flag,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Minimum,"','",V.Local.sValues)
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Tooling_Seq,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Hold_PO,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!WC_Name,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!PartNo,"','",V.Local.sValues)
+		F.Intrinsic.String.Concat(V.Local.sValues,V.uGlobal.uGCGDtl(v.Local.iForJob)!Rec_Type,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!WO_User_Fld,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!Serial_Number,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!PWC_Part,"','",V.uGlobal.uGCGDtl(v.Local.iForJob)!comments,"')",V.Local.sValues)
+
+		F.Intrinsic.String.Concat("Insert into GCG_SF_BarCodeWO_CAB ",V.Local.sFields," values ",V.Local.sValues,V.Local.sInsert)
+		F.ODBC.Connection!Con.Execute(V.Local.sInsert)
+
+	F.Intrinsic.Control.Next(V.Local.iForJob)
+'
+'F.Intrinsic.String.Concat("delete from BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"'",V.Local.sSel)
+'F.ODBC.Connection!Con.Execute(V.Local.sSel)
+'
+'V.Local.sFields.Set("Terminal,Rptid,Job,Suffix,Copy_No,Key_Seq,Router_Seq,LMO,BC_SEQ,BC_PWC,Start_Date,Due_Date,PWC,Extra_Desc,UM,Setup,Runtime,Labor_Total,Unit,Matl_Total,Mach,")
+'F.Intrinsic.String.Concat(V.Local.sFields,"Committed_Units,Committed_Dollars,Burden,Act_Hrs,Est_Dlrs,Act_Dlrs,WC_Factor,Proj_Group,Oper_Sort_Code,Crew_Size,Frequent,Prev_Clsd,",V.Local.sFields)
+'F.Intrinsic.String.Concat(V.Local.sFields,"Main_Comment,Lead_Time,Minimum_Flag,Minimum,Tooling_Seq,Hold_PO,WC_Name,PartNo,Rec_Type,WO_User_Fld,Serial_Number,PWC_Part,Filler50",V.Local.sFields)
+'F.Intrinsic.String.Concat("select ",V.Local.sFields," from BI_BAR_DETAIL ",V.Local.sSel)
+'F.ODBC.Connection!Con.OpenRecordsetRW("rstSel",V.Local.sSel)
+'	Function.Intrinsic.Variable.SaveUDTToRecordset("Con","rstSel","v.uGlobal.uGCGDtl")
+'F.ODBC.Con!rstSel.Close
+'
+
+
+
+
+
+
+Program.Sub.LoadData.End
+
+Program.Sub.Labor.Start
+
+
+V.Local.sFields.Declare(String)
+V.Local.sLseqSel.Declare(String)
+V.Local.sComSel.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sRtrSeq.Declare(String)
+V.Local.sSeqSel.Declare(String)
+
+V.Local.iForJob.Declare(Long)
+V.Local.iForLSeq.Declare(Long)
+V.Local.iForCSeq.Declare(Long)
+
+V.Local.iSeq.Declare(Long)
+V.Local.sSeq.Declare(String)
+
+V.Local.sFields.Set("Terminal,Rptid,Job,Suffix,Copy_No,Key_Seq,Router_Seq,LMO,BC_SEQ,BC_PWC,Start_Date,Due_Date,PWC,Extra_Desc,UM,Setup,Runtime,Labor_Total,Unit,Matl_Total,Mach,")
+F.Intrinsic.String.Concat(V.Local.sFields,"Committed_Units,Committed_Dollars,Burden,Act_Hrs,Est_Dlrs,Act_Dlrs,WC_Factor,Proj_Group,Oper_Sort_Code,Crew_Size,Frequent,Prev_Clsd,",V.Local.sFields)
+F.Intrinsic.String.Concat(V.Local.sFields,"Main_Comment,Lead_Time,Minimum_Flag,Minimum,Tooling_Seq,Hold_PO,WC_Name,PartNo,Rec_Type,WO_User_Fld,Serial_Number,PWC_Part,Comments",V.Local.sFields)
+
+V.Global.iseq.Set(0)
+F.Intrinsic.Debug.Stop
+'for each job-suffix
+	F.Intrinsic.String.Concat("select Router_Seq from V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"' and LMO='L'  order by Key_Seq",V.Local.sSeqSel)
+	F.ODBC.Connection!Con.OpenRecordsetRO("rstMain",V.Local.sSeqSel)
+		F.Intrinsic.Control.DoUntil(V.ODBC.Con!rstMain.EOF,=,True)
+
+'get all labor seq
+V.uGlobal.uBarDtl.Redim(-1,-1)
+			F.Intrinsic.String.Concat("select ",V.Local.sFields," from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"' and Router_Seq ='",V.ODBC.Con!rstMain.FieldValTrim!ROUTER_SEQ,"'",V.Local.sLseqSel)
+			F.ODBC.Connection!Con.OpenRecordsetRO("rstSeqSel",V.Local.sLseqSel)
+				F.Intrinsic.Control.If(V.ODBC.Con!rstSeqSel.EOF,=,False)
+					F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstSeqSel","v.uGlobal.uBarDtl",False,0)
+				F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstSeqSel.Close
+
+'re-sequence
+			F.Intrinsic.Math.Add(V.Global.iseq,1,V.Global.iseq)
+			F.Intrinsic.String.LPad(V.Global.iseq,"0",9,V.Local.sSeq)
+			V.uGlobal.uBarDtl!Key_Seq.Set(V.Local.sSeq)
+			F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+			F.Intrinsic.Control.andIf(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,false)
+			F.Intrinsic.Control.Elseif(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,True)
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.String.Left(V.uGlobal.uBarDtl(V.Local.iForJob)!Router_Seq,5,V.Local.sRtrSeq)
+
+'get comments for each labor seq
+V.uGlobal.uBarDtl.Redim(-1,-1)
+			F.Intrinsic.String.Concat("select ",V.Local.sFields," from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and  Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"'  and LMO='C' and left(Router_Seq,5) ='",V.Local.sRtrSeq,"' order by Key_Seq",V.Local.sComSel)
+			F.ODBC.Connection!Con.OpenRecordsetRO("rstSeqSel",V.Local.sComSel)
+				F.Intrinsic.Control.If(V.ODBC.Con!rstSeqSel.EOF,=,False)
+					F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstSeqSel","v.uGlobal.uBarDtl",False,0)
+				F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstSeqSel.Close
+'re-sequence
+			F.Intrinsic.Control.For(V.Local.iForCSeq,V.uGlobal.uBarDtl!Job.Lbound,V.uGlobal.uBarDtl!Job.Ubound,1)
+				F.Intrinsic.Math.Add(V.Global.iseq,1,V.Global.iseq)
+				F.Intrinsic.String.LPad(V.Global.iseq,"0",9,V.Local.sSeq)
+				V.uGlobal.uBarDtl(v.Local.iForCSeq)!Key_Seq.Set(V.Local.sSeq)
+			F.Intrinsic.Control.Next(V.Local.iForCSeq)
+			F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+			F.Intrinsic.Control.andIf(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,false)
+			F.Intrinsic.Control.Elseif(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,True)
+			F.Intrinsic.Control.EndIf
+
+		F.ODBC.Con!rstMain.MoveNext
+		F.Intrinsic.Control.Loop
+	F.ODBC.Con!rstMain.Close
+
+Program.Sub.Labor.End
+
+Program.Sub.Material.Start
+
+V.Local.sFields.Declare(String)
+V.Local.sLseqSel.Declare(String)
+V.Local.sComSel.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sRtrSeq.Declare(String)
+V.Local.sSeqSel.Declare(String)
+
+V.Local.iForJob.Declare(Long)
+V.Local.iForLSeq.Declare(Long)
+V.Local.iForCSeq.Declare(Long)
+
+V.Local.iSeq.Declare(Long)
+V.Local.sSeq.Declare(String)
+
+V.Local.sFields.Set("Terminal,Rptid,Job,Suffix,Copy_No,Key_Seq,Router_Seq,LMO,BC_SEQ,BC_PWC,Start_Date,Due_Date,PWC,Extra_Desc,UM,Setup,Runtime,Labor_Total,Unit,Matl_Total,Mach,")
+F.Intrinsic.String.Concat(V.Local.sFields,"Committed_Units,Committed_Dollars,Burden,Act_Hrs,Est_Dlrs,Act_Dlrs,WC_Factor,Proj_Group,Oper_Sort_Code,Crew_Size,Frequent,Prev_Clsd,",V.Local.sFields)
+F.Intrinsic.String.Concat(V.Local.sFields,"Main_Comment,Lead_Time,Minimum_Flag,Minimum,Tooling_Seq,Hold_PO,WC_Name,PartNo,Rec_Type,WO_User_Fld,Serial_Number,PWC_Part,Comments",V.Local.sFields)
+
+'for each job-suffix
+	F.Intrinsic.String.Concat("select Router_Seq from V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"' and LMO='M' order by Key_Seq",V.Local.sSeqSel)
+	F.ODBC.Connection!Con.OpenRecordsetRO("rstMain",V.Local.sSeqSel)
+		F.Intrinsic.Control.DoUntil(V.ODBC.Con!rstMain.EOF,=,True)
+
+'get all Material seq
+V.uGlobal.uBarDtl.Redim(-1,-1)
+			F.Intrinsic.String.Concat("select ",V.Local.sFields," from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"' and Router_Seq ='",V.ODBC.Con!rstMain.FieldValTrim!ROUTER_SEQ,"'",V.Local.sLseqSel)
+			F.ODBC.Connection!Con.OpenRecordsetRO("rstSeqSel",V.Local.sLseqSel)
+				F.Intrinsic.Control.If(V.ODBC.Con!rstSeqSel.EOF,=,False)
+					F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstSeqSel","v.uGlobal.uBarDtl",False,0)
+				F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstSeqSel.Close
+
+'re-sequence
+			F.Intrinsic.Math.Add(V.Global.iseq,1,V.Global.iseq)
+			F.Intrinsic.String.LPad(V.Global.iseq,"0",9,V.Local.sSeq)
+			V.uGlobal.uBarDtl!Key_Seq.Set(V.Local.sSeq)
+			F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+			F.Intrinsic.Control.andIf(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,false)
+			F.Intrinsic.Control.Elseif(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,True)
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.String.Left(V.uGlobal.uBarDtl(V.Local.iForJob)!Router_Seq,5,V.Local.sRtrSeq)
+
+'get comments for each Material seq
+V.uGlobal.uBarDtl.Redim(-1,-1)
+			F.Intrinsic.String.Concat("select ",V.Local.sFields," from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and  Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"'  and LMO='C' and left(Router_Seq,5) ='",V.Local.sRtrSeq,"' order by Key_Seq",V.Local.sComSel)
+			F.ODBC.Connection!Con.OpenRecordsetRO("rstSeqSel",V.Local.sComSel)
+				F.Intrinsic.Control.If(V.ODBC.Con!rstSeqSel.EOF,=,False)
+					F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstSeqSel","v.uGlobal.uBarDtl",False,0)
+				F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstSeqSel.Close
+'re-sequence
+			F.Intrinsic.Control.For(V.Local.iForCSeq,V.uGlobal.uBarDtl!Job.Lbound,V.uGlobal.uBarDtl!Job.Ubound,1)
+				F.Intrinsic.Math.Add(V.Global.iseq,1,V.Global.iseq)
+				F.Intrinsic.String.LPad(V.Global.iseq,"0",9,V.Local.sSeq)
+				V.uGlobal.uBarDtl(v.Local.iForCSeq)!Key_Seq.Set(V.Local.sSeq)
+			F.Intrinsic.Control.Next(V.Local.iForCSeq)
+			F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+			F.Intrinsic.Control.andIf(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,false)
+			F.Intrinsic.Control.Elseif(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,True)
+			F.Intrinsic.Control.EndIf
+
+		F.ODBC.Con!rstMain.MoveNext
+		F.Intrinsic.Control.Loop
+	F.ODBC.Con!rstMain.Close
+
+
+Program.Sub.Material.End
+
+Program.Sub.Outside.Start
+
+V.Local.sFields.Declare(String)
+V.Local.sLseqSel.Declare(String)
+V.Local.sComSel.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sRtrSeq.Declare(String)
+V.Local.sSeqSel.Declare(String)
+
+V.Local.iForJob.Declare(Long)
+V.Local.iForLSeq.Declare(Long)
+V.Local.iForCSeq.Declare(Long)
+
+V.Local.iSeq.Declare(Long)
+V.Local.sSeq.Declare(String)
+
+V.Local.sFields.Set("Terminal,Rptid,Job,Suffix,Copy_No,Key_Seq,Router_Seq,LMO,BC_SEQ,BC_PWC,Start_Date,Due_Date,PWC,Extra_Desc,UM,Setup,Runtime,Labor_Total,Unit,Matl_Total,Mach,")
+F.Intrinsic.String.Concat(V.Local.sFields,"Committed_Units,Committed_Dollars,Burden,Act_Hrs,Est_Dlrs,Act_Dlrs,WC_Factor,Proj_Group,Oper_Sort_Code,Crew_Size,Frequent,Prev_Clsd,",V.Local.sFields)
+F.Intrinsic.String.Concat(V.Local.sFields,"Main_Comment,Lead_Time,Minimum_Flag,Minimum,Tooling_Seq,Hold_PO,WC_Name,PartNo,Rec_Type,WO_User_Fld,Serial_Number,PWC_Part,Comments",V.Local.sFields)
+F.Intrinsic.Debug.Stop
+'for each job-suffix
+	F.Intrinsic.String.Concat("select Router_Seq from V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"' and LMO='O' order by Key_Seq",V.Local.sSeqSel)
+	F.ODBC.Connection!Con.OpenRecordsetRO("rstMain",V.Local.sSeqSel)
+		F.Intrinsic.Control.DoUntil(V.ODBC.Con!rstMain.EOF,=,True)
+
+'get all Outside seq
+V.uGlobal.uBarDtl.Redim(-1,-1)
+			F.Intrinsic.String.Concat("select ",V.Local.sFields," from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"' and LMO='O' and Router_Seq ='",V.ODBC.Con!rstMain.FieldValTrim!ROUTER_SEQ,"'",V.Local.sLseqSel)
+			F.ODBC.Connection!Con.OpenRecordsetRO("rstSeqSel",V.Local.sLseqSel)
+				F.Intrinsic.Control.If(V.ODBC.Con!rstSeqSel.EOF,=,False)
+					F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstSeqSel","v.uGlobal.uBarDtl",False,0)
+				F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstSeqSel.Close
+
+'re-sequence
+			F.Intrinsic.Math.Add(V.Global.iseq,1,V.Global.iseq)
+			F.Intrinsic.String.LPad(V.Global.iseq,"0",9,V.Local.sSeq)
+			V.uGlobal.uBarDtl!Key_Seq.Set(V.Local.sSeq)
+			F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+			F.Intrinsic.Control.andIf(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,false)
+			F.Intrinsic.Control.Elseif(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,True)
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.String.Left(V.uGlobal.uBarDtl(V.Local.iForJob)!Router_Seq,5,V.Local.sRtrSeq)
+
+'get comments for each Outside seq
+V.uGlobal.uBarDtl.Redim(-1,-1)
+			F.Intrinsic.String.Concat("select ",V.Local.sFields," from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and  Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"'  and LMO='C' and left(Router_Seq,5) ='",V.Local.sRtrSeq,"' order by Key_Seq",V.Local.sComSel)
+			F.ODBC.Connection!Con.OpenRecordsetRO("rstSeqSel",V.Local.sComSel)
+				F.Intrinsic.Control.If(V.ODBC.Con!rstSeqSel.EOF,=,False)
+					F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstSeqSel","v.uGlobal.uBarDtl",False,0)
+				F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstSeqSel.Close
+'re-sequence
+			F.Intrinsic.Control.For(V.Local.iForCSeq,V.uGlobal.uBarDtl!Job.Lbound,V.uGlobal.uBarDtl!Job.Ubound,1)
+				F.Intrinsic.Math.Add(V.Global.iseq,1,V.Global.iseq)
+				F.Intrinsic.String.LPad(V.Global.iseq,"0",9,V.Local.sSeq)
+				V.uGlobal.uBarDtl(v.Local.iForCSeq)!Key_Seq.Set(V.Local.sSeq)
+			F.Intrinsic.Control.Next(V.Local.iForCSeq)
+			F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+			F.Intrinsic.Control.andIf(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,false)
+			F.Intrinsic.Control.Elseif(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,True)
+			F.Intrinsic.Control.EndIf
+
+		F.ODBC.Con!rstMain.MoveNext
+		F.Intrinsic.Control.Loop
+	F.ODBC.Con!rstMain.Close
+
+
+
+Program.Sub.Outside.End
+
+Program.Sub.Total.Start
+
+V.Local.sFields.Declare(String)
+V.Local.sLseqSel.Declare(String)
+V.Local.sComSel.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sRtrSeq.Declare(String)
+V.Local.sSeqSel.Declare(String)
+
+V.Local.iForJob.Declare(Long)
+V.Local.iForLSeq.Declare(Long)
+V.Local.iForCSeq.Declare(Long)
+
+V.Local.iSeq.Declare(Long)
+V.Local.sSeq.Declare(String)
+
+V.Local.sFields.Set("Terminal,Rptid,Job,Suffix,Copy_No,Key_Seq,Router_Seq,LMO,BC_SEQ,BC_PWC,Start_Date,Due_Date,PWC,Extra_Desc,UM,Setup,Runtime,Labor_Total,Unit,Matl_Total,Mach,")
+F.Intrinsic.String.Concat(V.Local.sFields,"Committed_Units,Committed_Dollars,Burden,Act_Hrs,Est_Dlrs,Act_Dlrs,WC_Factor,Proj_Group,Oper_Sort_Code,Crew_Size,Frequent,Prev_Clsd,",V.Local.sFields)
+F.Intrinsic.String.Concat(V.Local.sFields,"Main_Comment,Lead_Time,Minimum_Flag,Minimum,Tooling_Seq,Hold_PO,WC_Name,PartNo,Rec_Type,WO_User_Fld,Serial_Number,PWC_Part,Comments",V.Local.sFields)
+
+'for each job-suffix
+	F.Intrinsic.String.Concat("select Router_Seq from V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"' and LMO='T'  order by Key_Seq",V.Local.sSeqSel)
+	F.ODBC.Connection!Con.OpenRecordsetRO("rstMain",V.Local.sSeqSel)
+		F.Intrinsic.Control.DoUntil(V.ODBC.Con!rstMain.EOF,=,True)
+
+'get all labor seq
+V.uGlobal.uBarDtl.Redim(-1,-1)
+			F.Intrinsic.String.Concat("select ",V.Local.sFields," from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"' and LMO='T' and Router_Seq ='",V.ODBC.Con!rstMain.FieldValTrim!ROUTER_SEQ,"'",V.Local.sLseqSel)
+			F.ODBC.Connection!Con.OpenRecordsetRO("rstSeqSel",V.Local.sLseqSel)
+				F.Intrinsic.Control.If(V.ODBC.Con!rstSeqSel.EOF,=,False)
+					F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstSeqSel","v.uGlobal.uBarDtl",False,0)
+				F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstSeqSel.Close
+
+'re-sequence
+			F.Intrinsic.Math.Add(V.Global.iseq,1,V.Global.iseq)
+			F.Intrinsic.String.LPad(V.Global.iseq,"0",9,V.Local.sSeq)
+			V.uGlobal.uBarDtl!Key_Seq.Set(V.Local.sSeq)
+			F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+			F.Intrinsic.Control.andIf(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,false)
+			F.Intrinsic.Control.Elseif(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,True)
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.String.Left(V.uGlobal.uBarDtl(V.Local.iForJob)!Router_Seq,5,V.Local.sRtrSeq)
+
+'get comments for each labor seq
+V.uGlobal.uBarDtl.Redim(-1,-1)
+			F.Intrinsic.String.Concat("select ",V.Local.sFields," from  V_BI_BAR_DETAIL where Terminal='",V.Caller.Terminal,"' and RPTID='001811' and  Job='",V.Args.Job,"' and Suffix='",V.Args.Suffix,"'  and LMO='C' and left(Router_Seq,5) ='",V.Local.sRtrSeq,"' order by Key_Seq",V.Local.sComSel)
+			F.ODBC.Connection!Con.OpenRecordsetRO("rstSeqSel",V.Local.sComSel)
+				F.Intrinsic.Control.If(V.ODBC.Con!rstSeqSel.EOF,=,False)
+					F.Intrinsic.Variable.LoadUDTFromRecordset("Con","rstSeqSel","v.uGlobal.uBarDtl",False,0)
+				F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstSeqSel.Close
+'re-sequence
+			F.Intrinsic.Control.For(V.Local.iForCSeq,V.uGlobal.uBarDtl!Job.Lbound,V.uGlobal.uBarDtl!Job.Ubound,1)
+				F.Intrinsic.Math.Add(V.Global.iseq,1,V.Global.iseq)
+				F.Intrinsic.String.LPad(V.Global.iseq,"0",9,V.Local.sSeq)
+				V.uGlobal.uBarDtl(v.Local.iForCSeq)!Key_Seq.Set(V.Local.sSeq)
+			F.Intrinsic.Control.Next(V.Local.iForCSeq)
+			F.Intrinsic.Control.If(V.uGlobal.uGCGDtl!Job.uBound,=,-1)
+			F.Intrinsic.Control.andIf(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,false)
+			F.Intrinsic.Control.Elseif(V.uGlobal.uBarDtl!Job.uBound,<>,-1)
+				Function.Intrinsic.Variable.UDTCopy(v.uGlobal.uBarDtl,v.uGlobal.uGCGDtl,True)
+			F.Intrinsic.Control.EndIf
+
+		F.ODBC.Con!rstMain.MoveNext
+		F.Intrinsic.Control.Loop
+	F.ODBC.Con!rstMain.Close
+
+Program.Sub.Total.End
+
+
